@@ -116,6 +116,3 @@ source $ZSH/oh-my-zsh.sh
 alias cs="cd ~/sources"
 export EDITOR=vim
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/heider/.sdkman"
-[[ -s "/Users/heider/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/heider/.sdkman/bin/sdkman-init.sh"
