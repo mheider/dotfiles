@@ -12,5 +12,7 @@ fi
 
 
 LOCAL_PROFILE_FILE=".zprofile_local"
-test -f $LOCAL_PROFILE_FILE && source $LOCAL_PROFILE_FILE
+if [ -f "$LOCAL_PROFILE_FILE" ]; then
+    source $LOCAL_PROFILE_FILE
+fi
 
