@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/heider/.oh-my-zsh"
+export ZSH="/home/heider/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,7 +72,7 @@ export FZF_BASE=/usr/local/opt/fzf
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  fzf
+  #fzf
   git
   mvn
   gradle
@@ -115,4 +115,39 @@ source $ZSH/oh-my-zsh.sh
 
 alias cs="cd ~/sources"
 export EDITOR=vim
+
+
+case "$OSTYPE" in 
+	linux*)
+		function open () {
+			detach xdg-open "$*" 
+		}
+
+	;;
+esac
+
+##
+## managing local secrets·
+##
+## local development secrets·
+LOCAL_SECRETS=".local_secrets"
+
+if [ -f "$LOCAL_SECRETS" ]; then
+	source $LOCAL_SECRETS
+	export SPRING_DATASOURCE_USERNAME=$DATABASE_USER
+	export SPRING_DATASOURCE_PASSWORD=$DATABASE_PASSWORD
+
+	export DATABASE_ANALYTICS_USERNAME=$DATABASE_USER
+	export DATABASE_ANALYTICS_PASSWORD=$DATABASE_PASSWORD
+
+	export BINDOC_ANALYTICS_DB_USERNAME=$DATABASE_USER
+	export BINDOC_ANALYTICS_DB_PASSWORD=$DATABASE_PASSWORD
+fi
+
+
+LOCAL_PROFILE_FILE=".zprofile_local"
+if [ -f "$LOCAL_PROFILE_FILE" ]; then
+	source $LOCAL_PROFILE_FILE
+fi
+
 
