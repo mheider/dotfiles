@@ -8,7 +8,7 @@ export ZSH="/Users/heider/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="afowler"
+ZSH_THEME="heider-clean"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -78,7 +78,7 @@ plugins=(
   gradle
   docker
   zsh-autosuggestions
-  osx
+  macos
   zsh-syntax-highlighting
   kubectl
   zsh-interactive-cd
@@ -114,5 +114,52 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias cs="cd ~/sources"
+alias notes="vim /Users/heider/Nextcloud/notes/."
+alias clearidea="rm -rf .idea && rm **/*.iml"
 export EDITOR=vim
+
+
+##
+# managing local secrets 
+#
+# local development secrets 
+LOCAL_SECRETS=".local_secrets"
+
+if [ -f "$LOCAL_SECRETS" ]; then
+    source $LOCAL_SECRETS
+    export SPRING_DATASOURCE_USERNAME=$DATABASE_USER
+    export SPRING_DATASOURCE_PASSWORD=$DATABASE_PASSWORD
+
+    export DATABASE_ANALYTICS_USERNAME=$DATABASE_USER
+    export DATABASE_ANALYTICS_PASSWORD=$DATABASE_PASSWORD
+
+    export BINDOC_ANALYTICS_DB_USERNAME=$DATABASE_USER
+    export BINDOC_ANALYTICS_DB_PASSWORD=$DATABASE_PASSWORD
+
+    export BINDOC_USER_DATA_DB_USERNAME=$DATABASE_USER
+    export BINDOC_USER_DATA_DB_PASSWORD=$DATABASE_PASSWORD
+
+fi
+
+
+LOCAL_PROFILE_FILE=".zprofile_local"
+if [ -f "$LOCAL_PROFILE_FILE" ]; then
+    source $LOCAL_PROFILE_FILE
+fi
+
+
+## >>> conda initialize >>>
+## !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/Users/heider/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/heider/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/heider/opt/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/heider/opt/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+## <<< conda initialize <<<
 

@@ -292,3 +292,4 @@ unbind C-b
 
 # move status line to top
 set -g status-position top
+

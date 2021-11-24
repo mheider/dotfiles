@@ -10,7 +10,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'udalov/kotlin-vim'
-Plugin 'vim-scripts/AutoComplPop'
+" Plugin 'vim-scripts/AutoComplPop'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -37,4 +38,3 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-set list listchars=tab:»·,trail:·,nbsp:·
