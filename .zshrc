@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/heider/.oh-my-zsh"
+export ZSH="/home/heider/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,7 +72,7 @@ export FZF_BASE=/usr/local/opt/fzf
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  fzf
+  #fzf
   git
   mvn
   gradle
@@ -114,7 +114,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias cs="cd ~/sources"
-alias notes="vim /Users/heider/Nextcloud/notes/."
 alias clearidea="rm -rf .idea && rm **/*.iml"
 export EDITOR=vim
 
@@ -138,28 +137,5 @@ if [ -f "$LOCAL_SECRETS" ]; then
 
     export BINDOC_USER_DATA_DB_USERNAME=$DATABASE_USER
     export BINDOC_USER_DATA_DB_PASSWORD=$DATABASE_PASSWORD
-
 fi
-
-
-LOCAL_PROFILE_FILE=".zprofile_local"
-if [ -f "$LOCAL_PROFILE_FILE" ]; then
-    source $LOCAL_PROFILE_FILE
-fi
-
-
-## >>> conda initialize >>>
-## !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/Users/heider/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/Users/heider/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-#        . "/Users/heider/opt/anaconda3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/Users/heider/opt/anaconda3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
-## <<< conda initialize <<<
 
