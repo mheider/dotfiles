@@ -13,11 +13,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'patstockwell/vim-monokai-tasty'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 call plug#end()
 
 "" Vim Configs
@@ -43,11 +43,11 @@ set shiftround
 set expandtab
 set number
 set mouse=a
-let mapleader=","
+let mapleader=" "
 set termguicolors
 let g:vim_monokai_tasty_italic = 1
 
-" colorscheme vim-monokai-tasty
+colorscheme vibrantink2
 
 
 "" Plugin Configuration
@@ -70,18 +70,11 @@ endfunction
 nnoremap <silent> <Leader><Leader> :Files<CR>
 
 
-"" vimspector
-
-nnoremap <Leader>dd :call vimspector#Launch()<CR>
-nnoremap <Leader>de :call vimspector#Reset()<CR>
-nnoremap <Leader>dc :call vimspector#Continue()<CR>
-
-nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
-nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
-
-nmap <Leader>dk <Plug>VimspectorRestart
-nmap <Leader>dh <Plug>VimspectorStepOut
-nmap <Leader>dl <Plug>VimspectorStepInto
-nmap <Leader>dj <Plug>VimspectorStepOver
-
+"" telescope
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>fcs <cmd>lua require('telescope.builtin').colorscheme()<cr>
 
