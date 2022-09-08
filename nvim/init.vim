@@ -17,6 +17,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'Raimondi/delimitMate'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 "" Vim Configs
@@ -45,7 +46,8 @@ set mouse=a
 let mapleader=","
 set termguicolors
 let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
+
+" colorscheme vim-monokai-tasty
 
 
 "" Plugin Configuration
@@ -53,6 +55,16 @@ colorscheme vim-monokai-tasty
 "" coc
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 "" fzf
 nnoremap <silent> <Leader><Leader> :Files<CR>
