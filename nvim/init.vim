@@ -17,7 +17,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'Raimondi/delimitMate'
-Plug 'puremourning/vimspector'
 call plug#end()
 
 "" Vim Configs
