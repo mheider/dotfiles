@@ -15,7 +15,6 @@ Plug 'tomasr/molokai'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'udalov/kotlin-vim'
 Plug 'Raimondi/delimitMate'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 call plug#end()
@@ -47,7 +46,7 @@ let mapleader=" "
 set termguicolors
 let g:vim_monokai_tasty_italic = 1
 
-colorscheme vibrantink2
+colorscheme molokai
 
 
 "" Plugin Configuration

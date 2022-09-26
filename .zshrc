@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/heider/.oh-my-zsh"
+export ZSH="/Users/heider/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -87,7 +87,15 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
+
 # User configuration
+
+# source homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
+# custom bins
+export PATH=/Users/heider/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -112,10 +120,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+## macvim config START
+mvim() {
+  open -a "MacVim" "$@" ;
+}
+## macvim config END
+
 
 alias cs="cd ~/sources"
+alias csd="cd ~/sources/daas"
 alias clearidea="rm -rf .idea && rm **/*.iml"
-export EDITOR=vim
+alias vim="nvim"
+alias c="clear"
+export EDITOR=nvim
 
 
 ##
@@ -137,5 +156,31 @@ if [ -f "$LOCAL_SECRETS" ]; then
 
     export BINDOC_USER_DATA_DB_USERNAME=$DATABASE_USER
     export BINDOC_USER_DATA_DB_PASSWORD=$DATABASE_PASSWORD
+
+    export BINDOC_MAPBOX_ACCESS_TOKEN=$MAPBOX_TOKEN
+
+    export PGUSER=$DATABASE_USER
+    export PGPASSWORD=$DATABASE_PASSWORD
 fi
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/heider/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/heider/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/heider/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/heider/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

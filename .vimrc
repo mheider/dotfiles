@@ -12,6 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'udalov/kotlin-vim'
 " Plugin 'vim-scripts/AutoComplPop'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/fzf'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,3 +40,4 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+set number
