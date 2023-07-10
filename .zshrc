@@ -134,6 +134,7 @@ alias csd="cd ~/sources/daas"
 alias clearidea="rm -rf .idea && rm **/*.iml"
 alias vim="nvim"
 alias c="clear"
+alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
 export EDITOR=nvim
 
 
@@ -161,6 +162,8 @@ if [ -f "$LOCAL_SECRETS" ]; then
 
     export PGUSER=$DATABASE_USER
     export PGPASSWORD=$DATABASE_PASSWORD
+
+    export JIRA_API_TOKEN=$JIRA_TOKEN
 fi
 
 
@@ -184,3 +187,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export GPG_TTY=$(tty)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

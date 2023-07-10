@@ -17,6 +17,7 @@ Plug 'udalov/kotlin-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 
 "" Vim Configs
@@ -47,6 +48,7 @@ set termguicolors
 let g:vim_monokai_tasty_italic = 1
 
 colorscheme molokai
+"colorscheme catppuccin_latte
 
 
 "" Plugin Configuration
