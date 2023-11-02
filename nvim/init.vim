@@ -1,11 +1,12 @@
 "" Basic Setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
-filetype off                  " required
+" filetype off                  " required
 
 "" Plugin Installation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+Plug 'rcarriga/nvim-notify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'afair/vibrantink2'
 Plug 'itchyny/lightline.vim'
@@ -18,7 +19,13 @@ Plug 'Raimondi/delimitMate'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'chrisbra/csv.vim'
+
 call plug#end()
+
+runtime! plugin/rplugin.vim
+silent! UpdateRemotePlugins
 
 "" Vim Configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -46,6 +53,7 @@ set mouse=a
 let mapleader=" "
 set termguicolors
 let g:vim_monokai_tasty_italic = 1
+
 
 colorscheme molokai
 "colorscheme catppuccin_latte
@@ -78,4 +86,14 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fcs <cmd>lua require('telescope.builtin').colorscheme()<cr>
+
+
+"" magma 
+nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
+nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
+xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
+nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
+nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
+nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+
 
