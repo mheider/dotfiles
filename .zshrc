@@ -132,10 +132,10 @@ mvim() {
 alias cs="cd ~/sources"
 alias csd="cd ~/sources/daas"
 alias clearidea="rm -rf .idea && rm **/*.iml"
-alias vim="nvim"
+alias vim="/Users/heider/.local/bin/lvim"
 alias c="clear"
 alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
-export EDITOR=nvim
+export EDITOR=/Users/heider/.local/bin/lvim
 
 
 ##
