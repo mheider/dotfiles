@@ -159,6 +159,9 @@ if [ -f "$LOCAL_SECRETS" ]; then
     export BINDOC_USER_DATA_DB_USERNAME=$DATABASE_USER
     export BINDOC_USER_DATA_DB_PASSWORD=$DATABASE_PASSWORD
 
+    export BINDOC_CLICKHOUSE_USERNAME=$DATABASE_USER
+    export BINDOC_CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD
+
     export BINDOC_MAPBOX_ACCESS_TOKEN=$MAPBOX_TOKEN
 
     export PGUSER=$DATABASE_USER
@@ -180,4 +183,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/heider/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/heider/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/heider/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/heider/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
